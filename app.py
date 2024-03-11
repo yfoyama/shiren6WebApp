@@ -4,10 +4,11 @@ import streamlit as st
 st.title('シレン６ アイテム価格判別')
 
 # Excelファイルのパス
-file_path = r'https://github.com/yfoyama/shiren6WebApp/blob/bd48a2fb65ba19865a040eb75f617b517f455d2f/itemList.xlsx'
+file_path = r'https://github.com/yfoyama/shiren6WebApp/blob/60f249cc34633148352227c56aa03d9c5876b8c1/itemList.csv'
+
 
 # Excelファイルを読み込む
-df = pd.read_excel(file_path)
+df = pd.read_csv(file_path)
 
 # fullname列を作成（correctionValueを整数で表示）
 df['fullname'] = df.apply(lambda x: f"{x['name']}({x['status']})" + (f"[{int(x['correctionValue'])}]" if pd.notnull(x['correctionValue']) else ''), axis=1)
