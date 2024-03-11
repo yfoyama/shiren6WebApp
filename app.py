@@ -4,7 +4,7 @@ import streamlit as st
 st.title('シレン６ アイテム価格判別')
 
 # Excelファイルのパス
-file_path = r'itemList.xlsx'
+file_path = r'https://github.com/yfoyama/shiren6WebApp/blob/bd48a2fb65ba19865a040eb75f617b517f455d2f/itemList.xlsx'
 
 # Excelファイルを読み込む
 df = pd.read_excel(file_path)
