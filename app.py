@@ -3,12 +3,11 @@ import streamlit as st
 
 st.title('シレン６ アイテム価格判別')
 
-# Excelファイルのパス
-file_path = r'https://github.com/yfoyama/shiren6WebApp/blob/60f249cc34633148352227c56aa03d9c5876b8c1/itemList.csv'
+# GitHub上のCSVファイルのURL
+github_csv_url = 'https://raw.githubusercontent.com/yfoyama/shiren6WebApp/60f249cc34633148352227c56aa03d9c5876b8c1/itemList.csv'
 
-
-# Excelファイルを読み込む
-df = pd.read_csv(file_path)
+# CSVファイルを読み込む
+df = pd.read_csv(github_csv_url,encoding='shift-jis')
 
 # fullname列を作成（correctionValueを整数で表示）
 df['fullname'] = df.apply(lambda x: f"{x['name']}({x['status']})" + (f"[{int(x['correctionValue'])}]" if pd.notnull(x['correctionValue']) else ''), axis=1)
